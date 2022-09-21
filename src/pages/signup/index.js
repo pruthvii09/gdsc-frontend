@@ -1,135 +1,179 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../../Components/Header';
 import styles from '../../Styles/pages/signup/Signup.module.css';
-// email, name, contact, college, year, password
+
 const Index = () => {
-  const [toggleClass, setToggleClass] = useState(false);
-  const [changeForm, setChangeForm] = useState(false);
-
-  // Signin fields
-  const [emptyFieldsSignIn, setEmptyFieldsSignIn] = useState([]);
-  const [loginData, setLoginData] = useState({ email: '', password: '' });
-
-  // Signup fields
-  const [signupData, setSignupData] = useState({
-    email: '',
+  const quiz = ['', '', '', '', '', '', ''];
+  const [data, setData] = useState({
     name: '',
+    email: '',
     contact: '',
     college: '',
     year: '',
     password: '',
-    quizCategory: '',
+    quizCategory: quiz,
   });
 
-  // Signin
-  const handleSignIn = (e) => {
-    e.preventDefault();
+  const handleSignUp = () => {
+    console.log(data);
+  };
 
-    setEmptyFieldsSignIn([]);
-
-    if (loginData?.email?.length <= 0) {
-      return setEmptyFieldsSignIn((prevArr) => [...prevArr, 'email']);
+  const handleCatgeory = (index, category) => {
+    if (quiz[index] === category) {
+      quiz?.splice(index, 1, '');
+    } else {
+      // (quiz[index] !== category)
+      // quiz[index] = category;
+      quiz?.splice(index, 1, category);
+      console.log(category);
     }
-    if (loginData?.password?.length <= 0) {
-      return setEmptyFieldsSignIn((prevArr) => [...prevArr, 'password']);
-    }
 
-    console.log(emptyFieldsSignIn);
-    console.log(loginData);
+    console.log(data?.quizCategory);
   };
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className={`${styles.container} ${
-          toggleClass && styles.right_panel_active
-        }`}
-        id="container"
-      >
-        <div
-          className={`${styles.form_container} ${styles.sign_up_container} ${
-            changeForm && styles.hide
-          }`}
-        >
-          <form action="#">
-            <h1>Create Account</h1>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="text" placeholder="Contact" />
-            <input type="text" placeholder="College" />
-            <select name="field" id="field">
-              <option value="select">Select your Field</option>
-              <option value="web_dev">Web Devlopment</option>
-              <option value="android_dev">Android Devlopment</option>
-              <option value="blockchain">Blockchain</option>
-              <option value="ui/ux">UI/UX</option>
-            </select>
-            <input type="text" placeholder="Year" />
-            <input type="password" placeholder="Password" />
-            <a onClick={() => setChangeForm(!changeForm)}>
-              Already have account SignIn
-            </a>
-            <button>Sign Up</button>
-          </form>
+      <Header>
+        <h1>
+          <span className={styles.blue}>Si</span>
+          <span className={styles.green}>gn</span>
+          <span className={styles.red}>Up</span>
+        </h1>
+        <p>
+          Welcome to Android Compose Camp 2022 - Powered by PES MCOE GDSC.
+          Register to join this amazing event!
+        </p>
+      </Header>
+
+      <div className={styles.container}>
+        <div className={styles.left_container}>
+          <img src="/images/home/home-hero.svg" alt="" />
         </div>
-        <div className={`${styles.form_container} ${styles.sign_in_container}`}>
-          <form action="#" className={styles.sign_in_form}>
-            <h1>Sign in</h1>
-            <div className={styles.social_container}></div>
-            <input
-              type="email"
-              placeholder="Email"
-              className={
-                emptyFieldsSignIn?.includes('email') ? styles.error : ''
-              }
-              value={loginData?.email}
-              onChange={(e) =>
-                setLoginData({ ...loginData, email: e.target.value })
-              }
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className={
-                emptyFieldsSignIn?.includes('password') ? styles.error : ''
-              }
-              value={loginData?.password}
-              onChange={(e) =>
-                setLoginData({ ...loginData, password: e.target.value })
-              }
-            />
-            <a href="#" onClick={() => setToggleClass(!toggleClass)}>
-              New to GDSC PESMCOE SignUp
-            </a>
-            <button onClick={(e) => handleSignIn(e)}>Sign In</button>
-          </form>
-        </div>
-        <div className={styles.overlay_container}>
-          <div className={styles.overlay}>
-            <div className={`${styles.overlay_panel} ${styles.overlay_left}`}>
-              <h1>GDSC PESMCOE</h1>
-              <p>
-                To keep connected with us please login with your personal info
-              </p>
-              <button
-                className={styles.ghost}
-                id="signIn"
-                onClick={() => setToggleClass(!toggleClass)}
-              >
-                Sign In
-              </button>
+        <div className={styles.form}>
+          <div>
+            <div className={styles.field}>
+              <input
+                type="text"
+                placeholder="Enter you name"
+                value={data?.name}
+                onChange={(e) => setData({ ...data, name: e.target.value })}
+              />
             </div>
-            <div className={`${styles.overlay_panel} ${styles.overlay_right}`}>
-              <h1>GDSC PESMCOE</h1>
-              <p>Enter your personal details and start journey with us</p>
-              <button
-                className={styles.ghost}
-                id="signUp"
-                onClick={() => setToggleClass(!toggleClass)}
-              >
-                Sign Up
-              </button>
+            <div className={styles.field}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={data?.email}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
+              />
+            </div>
+            <div className={styles.field}>
+              <input
+                type="text"
+                placeholder="Enter you contact number"
+                value={data?.contact}
+                onChange={(e) => setData({ ...data, contact: e.target.value })}
+              />
+            </div>
+            <div className={styles.field}>
+              <input
+                type="text"
+                placeholder="Enter your college name"
+                value={data?.college}
+                onChange={(e) => setData({ ...data, college: e.target.value })}
+              />
+            </div>
+            <div className={styles.field}>
+              <select>
+                <option value="1st" disabled={true} selected={true}>
+                  Select your year
+                </option>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+              </select>
+            </div>
+            <div className={styles.field}>
+              <input
+                type="password"
+                placeholder="Enter password"
+                value={data?.password}
+                onChange={(e) => setData({ ...data, password: e.target.value })}
+              />
+            </div>
+            <div
+              className={`${styles.field} ${styles.quiz_categories}`}
+              style={{ border: '1px solid #c5c5c5', padding: '12px' }}
+            >
+              <p>
+                <span>Select quizzes category</span>
+              </p>
+              <p>Non Tech</p>
+              <div className={styles.single_category}>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCatgeory(0, 'Marvel universe')}
+                  />{' '}
+                  Marvel universe
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCatgeory(1, 'Friends show')}
+                  />{' '}
+                  Friends show
+                </label>
+              </div>
+              <div className={styles.single_category}>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCatgeory(2, 'English OTT')}
+                  />{' '}
+                  English OTT
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCatgeory(3, 'Hindi OTT')}
+                  />{' '}
+                  Hindi OTT
+                </label>
+              </div>
+              <label>
+                <input
+                  type="checkbox"
+                  onChange={() => handleCatgeory(4, 'Harry Potter')}
+                />{' '}
+                Harry Potter
+              </label>
+              <br />
+              <p>Tech</p>
+              <div className={styles.single_category}>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCatgeory(5, 'Android')}
+                  />{' '}
+                  Android
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => handleCatgeory(6, 'Google and GDSC')}
+                  />{' '}
+                  Google and GDSC
+                </label>
+              </div>
             </div>
           </div>
+          <button onClick={handleSignUp}>Signup</button>
+          <p>
+            Already have and account? <Link to="/login"> Click here!</Link>
+          </p>
         </div>
       </div>
     </div>

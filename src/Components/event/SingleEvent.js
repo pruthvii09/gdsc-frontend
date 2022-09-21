@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../../Styles/pages/event/Event.module.css';
 
 const SingleEvent = ({ event }) => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.event}>
       <div className={styles.left_container}>
@@ -30,7 +33,11 @@ const SingleEvent = ({ event }) => {
             <i class="uil uil-map-pin"></i>Venue: {event?.schedule?.venu}
           </span>
         </div>
-        {event?.register && <button>Register For Event</button>}
+        {event?.register && (
+          <button onClick={() => navigate('/signup')}>
+            Register For Event
+          </button>
+        )}
       </div>
     </div>
   );

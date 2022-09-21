@@ -83,13 +83,19 @@ const Layout = ({ children }) => {
               </span>
             </li>
             <li>
-              <span>Quiz</span>
+              <span>
+                <Link to="quiz">Quiz</Link>
+              </span>
             </li>
             <li>
-              <span>Contact Us</span>
+              <span>
+                <Link to="contact">Contact</Link>
+              </span>
             </li>
             <li>
-              <span>Register</span>
+              <span>
+                <Link to="signup">Register</Link>
+              </span>
             </li>
           </ul>
           <h3>Socials</h3>

@@ -8,7 +8,7 @@ import {
 import './App.css';
 
 // Pages
-import { Home, Events, Team, Contact, Signup, Quiz } from '../src/pages';
+import { Home, Events, Team, Contact, Signup, Quiz, Login } from '../src/pages';
 import Layout from './Components/Layout';
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/quiz" element={<Quiz />} />
           </Routes>
         </Layout>

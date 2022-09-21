@@ -7,7 +7,7 @@ const index = () => {
   const upcomingevents = [
     {
       id: 1,
-      image: '/images/andr-com-cmp.png',
+      image: '/images/event/android-compose-camp-event.png',
       name: 'Android Compose Camp',
       paragraphs: [
         'Compose Camps are community-organized events that teach people how to create Android apps 📱 with Jetpack Compose. Join us now!! This is your time to shine! Get hands- on experience on technologies from Google and excel in your expertise with this event🎉✨',

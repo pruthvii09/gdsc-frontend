@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../../Styles/pages/home/Home.module.css';
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.home}>
       <div className={styles.container}>
@@ -20,13 +23,14 @@ const Index = () => {
           <p>Hello there, coders! 🔊</p>
           <p>
             Plan out your plans for developing Android apps📱 and learn the
-            fundamentals of Android app development! GDSC is here with an
-            amazing Android Compose Camp, which is organised by the community to
-            enrich our code monkeys' coding experience! So, what are you still
-            waiting for?✨✨
+            fundamentals of Android app development! GDSC - Progressive
+            Education Society's Modern College Of Engineering, Pune chapter is
+            here with an amazing Android Compose Camp, which is organised by the
+            community to enrich our code monkeys' coding experience! So, what
+            are you still waiting for?✨✨
           </p>
 
-          <button>Become a member</button>
+          <button onClick={() => navigate('/signup')}>Join Now</button>
         </div>
         <div className={styles.right_container}>
           <img src="/images/home/home-hero.svg" alt="Home Hero Image" />
@@ -49,7 +53,7 @@ const Index = () => {
           and check out how you can take part in this event ASAP!🏋️
         </p>
         <img src="/images/home/android-jetpack.png" alt="" />
-        <button>
+        <button onClick={() => navigate('/signup')}>
           <i class="uil uil-bell"></i> Register For Event
         </button>
       </div>
@@ -70,7 +74,7 @@ const Index = () => {
             enrich our code monkeys' coding experience! So, what are you still
             waiting for?✨✨
           </p>
-          <button>Join Now</button>
+          <button onClick={() => navigate('/signup')}>Join Now</button>
         </div>
       </div>
 
