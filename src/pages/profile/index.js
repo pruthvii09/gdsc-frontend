@@ -30,11 +30,10 @@ const Index = () => {
       const json = await response.json();
 
       if (response.ok) {
-        console.log(json);
         setData(json);
       }
       if (!response.ok) {
-        console.log(json.error);
+        // console.log(json.error);
       }
     };
 

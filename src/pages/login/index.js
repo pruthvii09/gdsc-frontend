@@ -40,8 +40,12 @@ const Index = () => {
 
     if (data?.email?.length <= 0) {
       setEmptyFields((emptyFields) => [...emptyFields, 'email']);
+      setError('Please enter email!');
+      setShowError(true);
     } else if (data?.password?.length <= 0) {
       setEmptyFields((emptyFields) => [...emptyFields, 'password']);
+      setError('Please enter password!');
+      setShowError(true);
     } else {
       const response = await fetch(
         `${process.env.REACT_APP_BACKEND_URI}/api/users/login`,
@@ -53,21 +57,16 @@ const Index = () => {
           body: JSON.stringify({ ...data }),
         }
       );
-
       const json = await response.json();
-
       if (response.ok) {
-        console.log(json);
         localStorage.setItem('user', JSON.stringify(json));
         setData({
           email: '',
           password: '',
         });
-
         setTimeout(() => {
           dispatch({ type: 'LOGIN', payload: json });
         }, 4000);
-
         setOpenDialog(true);
       }
       if (!response.ok) {
@@ -98,6 +97,7 @@ const Index = () => {
         <div className={styles.form} style={{ marginTop: '90px' }}>
           <div>
             <div className={styles.field}>
+              <b>Email *</b>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -109,6 +109,7 @@ const Index = () => {
               />
             </div>
             <div className={`${styles.field} ${styles.password_field}`}>
+              <b>Password *</b>
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Enter password"

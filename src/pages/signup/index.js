@@ -60,16 +60,24 @@ const Index = () => {
       setEmptyFields([...emptyFields, 'name']);
     } else if (data?.email?.length <= 0) {
       setEmptyFields((emptyFields) => [...emptyFields, 'email']);
+      setError('Please enter email!');
+      setShowError(true);
     } else if (data?.contact?.length !== 10) {
       setEmptyFields((emptyFields) => [...emptyFields, 'contact']);
       setError('Contact number must be at exacty 10 digits long!');
       setShowError(true);
     } else if (data?.college?.length <= 0) {
+      setError('Please enter college name!');
+      setShowError(true);
       setEmptyFields((emptyFields) => [...emptyFields, 'college']);
     } else if (data?.year?.length <= 0) {
+      setError('Please select year!');
+      setShowError(true);
       setEmptyFields((emptyFields) => [...emptyFields, 'year']);
     } else if (data?.password?.length <= 0) {
       setEmptyFields((emptyFields) => [...emptyFields, 'password']);
+      setError('Please enter password!');
+      setShowError(true);
     } else if (!data?.quizCategory?.length >= 1) {
       setError('Please select at one catgory for quiz!');
       setShowError(true);
@@ -84,12 +92,9 @@ const Index = () => {
           body: JSON.stringify({ ...data }),
         }
       );
-
       const json = await response.json();
-
       if (response.ok) {
         localStorage.setItem('user', JSON.stringify(json));
-
         setData({
           name: '',
           email: '',
@@ -99,11 +104,9 @@ const Index = () => {
           password: '',
           quizCategory: [],
         });
-
         setTimeout(() => {
           dispatch({ type: 'LOGIN', payload: json });
         }, 4000);
-
         setOpenDialog(true);
       }
       if (!response.ok) {
@@ -135,6 +138,7 @@ const Index = () => {
         <div className={styles.form}>
           <div>
             <div className={styles.field}>
+              <b>Name *</b>
               <input
                 type="text"
                 placeholder="Enter you name"
@@ -146,6 +150,7 @@ const Index = () => {
               />
             </div>
             <div className={styles.field}>
+              <b>Email *</b>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -157,6 +162,7 @@ const Index = () => {
               />
             </div>
             <div className={styles.field}>
+              <b>Contact Number *</b>
               <input
                 type="text"
                 placeholder="Enter you contact number"
@@ -168,6 +174,7 @@ const Index = () => {
               />
             </div>
             <div className={styles.field}>
+              <b>College Name *</b>
               <input
                 type="text"
                 placeholder="Enter your college name"
@@ -179,6 +186,7 @@ const Index = () => {
               />
             </div>
             <div className={styles.field}>
+              <b>Select Year *</b>
               <select
                 onChange={(e) => setData({ ...data, year: e.target.value })}
                 className={
@@ -195,6 +203,7 @@ const Index = () => {
               </select>
             </div>
             <div className={`${styles.field} ${styles.password_field}`}>
+              <b>Password *</b>
               <input
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Enter password"

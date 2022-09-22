@@ -60,6 +60,8 @@
 
 .container .field {
   margin: 10px 10px;
+  position: relative;
+  margin-bottom: 22px !important;
 }
 
 .field input[type='text'],
@@ -83,6 +85,17 @@
   margin-bottom: 5px !important;
   text-align: left !important;
   margin-top: 0px !important;
+}
+
+.field b {
+  font-weight: 300;
+  font-size: 13px;
+  color: #636363;
+  position: absolute;
+  top: -9px;
+  left: 4px;
+  background: #fdfdfd;
+  padding: 0px 5px;
 }
 
 .field p span {
