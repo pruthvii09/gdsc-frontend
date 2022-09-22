@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Dialog from '../../Components/Dialog';
 import Header from '../../Components/Header';
+import Spinner from '../../Components/Spinner';
 import { useUserContext } from '../../hooks/useUserContext';
 import styles from '../../Styles/pages/signup/Signup.module.css';
 
@@ -88,7 +89,7 @@ const Index = () => {
 
       if (response.ok) {
         localStorage.setItem('user', JSON.stringify(json));
-        dispatch({ type: 'LOGIN', payload: json });
+
         setData({
           name: '',
           email: '',
@@ -98,6 +99,11 @@ const Index = () => {
           password: '',
           quizCategory: [],
         });
+
+        setTimeout(() => {
+          dispatch({ type: 'LOGIN', payload: json });
+        }, 4000);
+
         setOpenDialog(true);
       }
       if (!response.ok) {
@@ -300,8 +306,19 @@ const Index = () => {
               ></i>
             </div>
           )}
-          <button onClick={handleSignUp} disabled={disableSignup}>
-            Signup
+          <button
+            onClick={handleSignUp}
+            disabled={disableSignup}
+            className={disableSignup ? styles.disabled : ''}
+          >
+            {disableSignup ? (
+              <>
+                {' '}
+                Loading <Spinner />
+              </>
+            ) : (
+              'Signup'
+            )}
           </button>
           <p>
             Already have and account? <Link to="/login"> Click here!</Link>

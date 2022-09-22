@@ -120,6 +120,12 @@
   margin: 10px 10px;
   font-size: 15px;
   cursor: pointer;
+  display: flex;
+}
+
+.disabled {
+  background: #7db7ff !important;
+  cursor: none;
 }
 
 .error {
