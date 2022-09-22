@@ -31,6 +31,7 @@ const Index = () => {
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_BACKEND_URI);
     if (user) {
       navigate('/events');
     }
