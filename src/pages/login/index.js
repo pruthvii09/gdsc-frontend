@@ -168,11 +168,10 @@ const Index = () => {
         children={
           <div>
             <p>You are logged in to Android Compose Camp 2022 event!</p>
-            <button
-              className={styles.button}
-              onClick={() => navigate('/contact')}
-            >
-              Contact Us
+            <button className={styles.button}>
+              <a href="/contact" style={{ color: 'white' }}>
+                Contact Us
+              </a>
             </button>
           </div>
         }
