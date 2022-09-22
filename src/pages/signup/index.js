@@ -331,7 +331,7 @@ const Index = () => {
       <Dialog
         openDialog={openDialog}
         setOpenDialog={setOpenDialog}
-        title={'Registration Scuccessful!'}
+        title={'Registration Successful!'}
         children={
           <div>
             <p>Thank you for Android Compose Camp 2022 registration!</p>
