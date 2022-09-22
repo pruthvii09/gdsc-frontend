@@ -28,7 +28,7 @@ const Index = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/events');
+      navigate('/profile');
     }
   });
 
@@ -57,6 +57,7 @@ const Index = () => {
       const json = await response.json();
 
       if (response.ok) {
+        console.log(json);
         localStorage.setItem('user', JSON.stringify(json));
         setData({
           email: '',
@@ -154,7 +155,7 @@ const Index = () => {
             )}
           </button>
           <p>
-            Don't have and account? <Link to="/signup"> Click here!</Link>
+            Don't have and account? <a href="/signup"> Click here!</a>
           </p>
         </div>
       </div>

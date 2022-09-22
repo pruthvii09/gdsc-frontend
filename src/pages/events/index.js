@@ -29,16 +29,15 @@ const index = () => {
   const pastevents = [
     {
       id: 1,
-      image: '/images/andr-com-cmp.png',
+      image: '/images/event/orientation.jpeg',
       name: 'GDSC Orientation 2022',
       paragraphs: [
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium et magni ipsam delectus, iste blanditiis. Possimus perferendis officia eaque maxime laudantium. Mollitia ducimus labore corrupti dolor nobis sunt debitis dolorem.',
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eveniet et sit. Pariatur autem amet obcaecati iure architecto optio consequatur atque adipisci vitae sint. Accusantium sed ad hic maiores qui dicta? Error accusamus quam facilis ratione reiciendis? Inventore, accusamus esse!',
+        'GDSC PESMCOE successfully conducted our debut event, the orientation for the tenure 2022-23. The goal of GDSC is to bridge the knowledge gap between theory and practice by implementing Google technologies to address issues in our community. The club was successfully launched in classroom 424 on September 17, 2022, from 12:30 pm to 1:30pm',
       ],
       schedule: {
         date: '17 September, 2022',
         time: '12:30 PM - 1:30PM',
-        venu: 'AIDS Seminar Hall',
+        venu: 'Classroom 424 (Comp)',
       },
       register: false,
     },

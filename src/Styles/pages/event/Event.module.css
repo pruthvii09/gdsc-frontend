@@ -1,6 +1,10 @@
 .container {
 }
 
+.container button a {
+  color: #fdfdfd;
+}
+
 .container h1 {
   font-size: 3rem;
   text-align: center;

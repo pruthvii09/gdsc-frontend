@@ -38,7 +38,6 @@ const index = () => {
                 <i className="bx bxs-envelope"></i>
                 <div className={styles.topic}>Email</div>
                 <div className={styles.text_one}>gdscpesmcoe@gmail.com</div>
-                <div className={styles.text_two}>autipruthviraj@gmail.com</div>
               </div>
             </div>
             <div className={styles.right_side}>
@@ -58,7 +57,7 @@ const index = () => {
                   <input type="text" placeholder="Enter your email"></input>
                 </div>
                 <div className={`${styles.input_box} ${styles.message_box}`}>
-                  <textarea></textarea>
+                  <textarea placeholder="Write something...."></textarea>
                 </div>
                 <div className={styles.button}>
                   <input type="button" value="Send Now"></input>

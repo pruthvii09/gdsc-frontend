@@ -40,8 +40,8 @@ const SingleEvent = ({ event }) => {
           (user ? (
             <h6>You have already registered for this event!</h6>
           ) : (
-            <button onClick={() => navigate('/signup')}>
-              Register For Event
+            <button>
+              <a href="/signup">Register For Event</a>
             </button>
           ))}
       </div>

@@ -10,6 +10,10 @@
   padding-top: 6rem;
 }
 
+.home button a {
+  color: #fdfdfd;
+}
+
 .home button {
   background: var(--blue);
   border: none;

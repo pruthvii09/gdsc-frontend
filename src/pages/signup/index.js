@@ -33,7 +33,7 @@ const Index = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/events');
+      navigate('/profile');
     }
   });
 
@@ -229,7 +229,6 @@ const Index = () => {
                   <input
                     type="checkbox"
                     value="Marvel universe"
-                    // onChange={() => handleCatgeory(0, 'Marvel universe')}
                     onChange={handleCategory}
                   />{' '}
                   Marvel universe
@@ -238,7 +237,6 @@ const Index = () => {
                   <input
                     type="checkbox"
                     value="Friends show"
-                    // onChange={() => handleCatgeory(1, 'Friends show')}
                     onChange={handleCategory}
                   />{' '}
                   Friends show
@@ -249,7 +247,6 @@ const Index = () => {
                   <input
                     type="checkbox"
                     value="English OTT"
-                    // onChange={() => handleCatgeory(2, 'English OTT')}
                     onChange={handleCategory}
                   />{' '}
                   English OTT
@@ -258,7 +255,6 @@ const Index = () => {
                   <input
                     type="checkbox"
                     value="Hindi OTT"
-                    // onChange={() => handleCatgeory(3, 'Hindi OTT')}
                     onChange={handleCategory}
                   />{' '}
                   Hindi OTT
@@ -268,7 +264,6 @@ const Index = () => {
                 <input
                   type="checkbox"
                   value="Harry Potter"
-                  // onChange={() => handleCatgeory(4, 'Harry Potter')}
                   onChange={handleCategory}
                 />{' '}
                 Harry Potter
@@ -280,7 +275,6 @@ const Index = () => {
                   <input
                     type="checkbox"
                     value="Android"
-                    // onChange={() => handleCatgeory(5, 'Android')}
                     onChange={handleCategory}
                   />{' '}
                   Android
@@ -288,11 +282,10 @@ const Index = () => {
                 <label>
                   <input
                     type="checkbox"
-                    value="Google and GDSC"
-                    // onChange={() => handleCatgeory(6, 'Google and GDSC')}
+                    value="Google and Web3"
                     onChange={handleCategory}
                   />{' '}
-                  Google and GDSC
+                  Google and Web3
                 </label>
               </div>
             </div>
@@ -321,7 +314,7 @@ const Index = () => {
             )}
           </button>
           <p>
-            Already have and account? <Link to="/login"> Click here!</Link>
+            Already have and account? <a href="/login"> Click here!</a>
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.home}>
+    <div className={styles.home} id="#home">
       <div className={styles.container}>
         <div className={styles.left_container}>
           <h1>
@@ -30,7 +30,9 @@ const Index = () => {
             are you still waiting for?✨✨
           </p>
 
-          <button onClick={() => navigate('/signup')}>Join Now</button>
+          <button>
+            <a href="/signup">Register Now</a>
+          </button>
         </div>
         <div className={styles.right_container}>
           <img src="/images/home/home-hero.svg" alt="Home Hero Image" />
@@ -54,7 +56,9 @@ const Index = () => {
         </p>
         <img src="/images/home/android-jetpack.png" alt="" />
         <button onClick={() => navigate('/signup')}>
-          <i class="uil uil-bell"></i> Register For Event
+          <a href="/signup">
+            <i class="uil uil-bell"></i> Register For Event
+          </a>
         </button>
       </div>
 
@@ -74,7 +78,9 @@ const Index = () => {
             enrich our code monkeys' coding experience! So, what are you still
             waiting for?✨✨
           </p>
-          <button onClick={() => navigate('/contact')}>Join Now</button>
+          <button>
+            <a href="/signup">Join Now</a>
+          </button>
         </div>
       </div>
 

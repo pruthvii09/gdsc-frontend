@@ -5,5 +5,6 @@ import Contact from './contact';
 import Signup from './signup';
 import Quiz from './quiz';
 import Login from './login';
+import Profile from './profile';
 
-export { Home, Events, Team, Contact, Signup, Quiz, Login };
+export { Home, Events, Team, Contact, Signup, Quiz, Login, Profile };

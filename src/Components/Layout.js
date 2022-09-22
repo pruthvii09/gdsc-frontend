@@ -28,46 +28,53 @@ const Layout = ({ children }) => {
             onClick={() => setOpen(!open)}
           ></i>
           <li>
-            <Link to="/" onClick={() => setOpen(!open)}>
+            <a href="/" onClick={() => setOpen(!open)}>
               Home
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="events" onClick={() => setOpen(!open)}>
+            <a href="events" onClick={() => setOpen(!open)}>
               Events
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="team" onClick={() => setOpen(!open)}>
+            <a href="team" onClick={() => setOpen(!open)}>
               Team
-            </Link>
+            </a>
           </li>
           {/* <li>
-            <Link to="quiz" onClick={() => setOpen(!open)}>
+            <a href="quiz" onClick={() => setOpen(!open)}>
               Quiz
-            </Link>
+            </a>
           </li> */}
           <li>
-            <Link to="contact" onClick={() => setOpen(!open)}>
+            <a href="contact" onClick={() => setOpen(!open)}>
               Contact Us
-            </Link>
+            </a>
           </li>
 
           {user ? (
-            <li>
-              <Link onClick={handleLogout} className={styles.active}>
-                Logout
-              </Link>
-            </li>
+            <>
+              <li>
+                <a href="profile" onClick={() => setOpen(!open)}>
+                  Profile
+                </a>
+              </li>
+              <li>
+                <Link onClick={handleLogout} className={styles.active}>
+                  Logout
+                </Link>
+              </li>
+            </>
           ) : (
             <li>
-              <Link
-                to="signup"
+              <a
+                href="signup"
                 onClick={() => setOpen(!open)}
                 className={styles.active}
               >
                 Register
-              </Link>
+              </a>
             </li>
           )}
         </ul>
@@ -86,51 +93,57 @@ const Layout = ({ children }) => {
           <ul>
             <li>
               <span>
-                <Link to="/">Home</Link>
+                <a href="/">Home</a>
               </span>
             </li>
             <li>
               <span>
-                <Link to="events">Events</Link>
+                <a href="events">Events</a>
               </span>
             </li>
             <li>
               <span>
-                <Link to="team">Team</Link>
+                <a href="team">Team</a>
               </span>
             </li>
             {/* <li>
               <span>
-                <Link to="quiz">Quiz</Link>
+                <a href="quiz">Quiz</a>
               </span>
             </li> */}
             <li>
               <span>
-                <Link to="contact">Contact</Link>
+                <a href="contact">Contact</a>
               </span>
             </li>
             <li>
               <span>
-                <Link to="signup">Register</Link>
+                <a href="signup">Register</a>
               </span>
             </li>
           </ul>
           <h3>Socials</h3>
           <div className={styles.socials}>
             <div className={styles.social}>
-              <Link to="https://www.instagram.com/gdsc_pesmcoe/">
+              <a href="https://www.instagram.com/gdsc_pesmcoe/" target="_blank">
                 <i className="uil uil-instagram"></i>
-              </Link>
+              </a>
             </div>
             <div className={styles.social}>
-              <Link to="https://www.linkedin.com/company/gdsc-pesmcoe/">
+              <a
+                href="https://www.linkedin.com/company/gdsc-pesmcoe/"
+                target="_blank"
+              >
                 <i className="uil uil-linkedin-alt"></i>
-              </Link>
+              </a>
             </div>
             <div className={styles.social}>
-              <Link to="https://twitter.com/gdsc_pesmcoe?s=20&t=AXGA6MhC0e3y8NOBkUOjHA">
+              <a
+                href="https://twitter.com/gdsc_pesmcoe?s=20&t=AXGA6MhC0e3y8NOBkUOjHA"
+                target="_blank"
+              >
                 <i className="uil uil-twitter-alt"></i>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
