@@ -124,12 +124,24 @@
   display: none;
 }
 
+.account {
+  display: none;
+}
+
 /* Media Query */
 @media screen and (max-width: 900px) {
   .hamburger {
     display: block;
     font-size: 28px;
     color: #505050;
+  }
+
+  .account {
+    display: block !important;
+    font-size: 25px !important;
+    color: #505050;
+    margin-right: 20px;
+    cursor: pointer;
   }
 
   .navbar {

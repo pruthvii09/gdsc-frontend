@@ -78,10 +78,17 @@ const Layout = ({ children }) => {
             </li>
           )}
         </ul>
-        <i
-          className={`uil uil-bars ${styles.hamburger}`}
-          onClick={() => setOpen(!open)}
-        ></i>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          {user && (
+            <a href="/profile">
+              <i className={`uil uil-user-circle ${styles.account}`}></i>
+            </a>
+          )}
+          <i
+            className={`uil uil-bars ${styles.hamburger}`}
+            onClick={() => setOpen(!open)}
+          ></i>
+        </div>
       </nav>
 
       {children}
