@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useUserContext } from '../hooks/useUserContext';
 import styles from '../Styles/components/Layout.module.css';
 
 const Layout = ({ children }) => {
   const navigate = useNavigate();
 
+  const { user, dispatch } = useUserContext();
+
   const [open, setOpen] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch({ type: 'LOGIN', payload: null });
+  };
 
   return (
     <div>
@@ -34,25 +42,34 @@ const Layout = ({ children }) => {
               Team
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="quiz" onClick={() => setOpen(!open)}>
               Quiz
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="contact" onClick={() => setOpen(!open)}>
               Contact Us
             </Link>
           </li>
-          <li>
-            <Link
-              to="signup"
-              onClick={() => setOpen(!open)}
-              className={styles.active}
-            >
-              Register
-            </Link>
-          </li>
+
+          {user ? (
+            <li>
+              <Link onClick={handleLogout} className={styles.active}>
+                Logout
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link
+                to="signup"
+                onClick={() => setOpen(!open)}
+                className={styles.active}
+              >
+                Register
+              </Link>
+            </li>
+          )}
         </ul>
         <i
           className={`uil uil-bars ${styles.hamburger}`}
@@ -82,11 +99,11 @@ const Layout = ({ children }) => {
                 <Link to="team">Team</Link>
               </span>
             </li>
-            <li>
+            {/* <li>
               <span>
                 <Link to="quiz">Quiz</Link>
               </span>
-            </li>
+            </li> */}
             <li>
               <span>
                 <Link to="contact">Contact</Link>
@@ -101,13 +118,19 @@ const Layout = ({ children }) => {
           <h3>Socials</h3>
           <div className={styles.socials}>
             <div className={styles.social}>
-              <i className="uil uil-instagram"></i>
+              <Link to="https://www.instagram.com/gdsc_pesmcoe/">
+                <i className="uil uil-instagram"></i>
+              </Link>
             </div>
             <div className={styles.social}>
-              <i className="uil uil-linkedin-alt"></i>
+              <Link to="https://www.linkedin.com/company/gdsc-pesmcoe/">
+                <i className="uil uil-linkedin-alt"></i>
+              </Link>
             </div>
             <div className={styles.social}>
-              <i className="uil uil-twitter-alt"></i>
+              <Link to="https://twitter.com/gdsc_pesmcoe?s=20&t=AXGA6MhC0e3y8NOBkUOjHA">
+                <i className="uil uil-twitter-alt"></i>
+              </Link>
             </div>
           </div>
         </div>

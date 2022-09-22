@@ -74,7 +74,7 @@ const Index = () => {
             enrich our code monkeys' coding experience! So, what are you still
             waiting for?✨✨
           </p>
-          <button onClick={() => navigate('/signup')}>Join Now</button>
+          <button onClick={() => navigate('/contact')}>Join Now</button>
         </div>
       </div>
 

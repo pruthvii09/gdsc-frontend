@@ -53,9 +53,8 @@ const index = () => {
           <span className={styles.red}>ts</span>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-          assumenda doloribus rem sit, neque qui. Nostrum illo sint ratione
-          maxime.
+          The main motive behind each and every event of GDSC | PES MCOE is
+          spreading knowledge and giving inspiration to developers.
         </p>
       </Header>
 

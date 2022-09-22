@@ -33,6 +33,18 @@
   padding: 50px 5rem;
 }
 
+.events_container h6 {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--green);
+  border: 1.5px solid var(--green);
+  margin-top: 25px;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 5px;
+  background: #dfffdf;
+}
+
 .events_container h2 {
   text-align: center;
   font-weight: 400;

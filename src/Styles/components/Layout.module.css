@@ -111,6 +111,14 @@
   padding: 30px 20px;
 }
 
+.footer a {
+  color: #505050;
+}
+
+.footer a:hover {
+  color: var(--red);
+}
+
 .hamburger,
 .close_icon {
   display: none;

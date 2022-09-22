@@ -168,9 +168,8 @@ const index = () => {
           <span className={styles.red}>Team</span>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-          assumenda doloribus rem sit, neque qui. Nostrum illo sint ratione
-          maxime.
+          Coming together is a beginning. Keeping together is progress. Working
+          together is success. Meet the core team of GDSC | PES MCOE 2022
         </p>
       </Header>
 
