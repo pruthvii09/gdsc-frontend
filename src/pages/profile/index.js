@@ -39,7 +39,6 @@ const Index = () => {
 
     if (user) {
       fetchData();
-      console.log(user);
     }
   }, [user]);
 

@@ -128,12 +128,22 @@
   display: none;
 }
 
+.icon_div {
+  display: none;
+}
+
 /* Media Query */
 @media screen and (max-width: 900px) {
   .hamburger {
     display: block;
     font-size: 28px;
     color: #505050;
+  }
+
+  .icon_div {
+    display: block;
+    display: flex;
+    align-items: center;
   }
 
   .account {

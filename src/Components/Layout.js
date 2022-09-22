@@ -78,7 +78,7 @@ const Layout = ({ children }) => {
             </li>
           )}
         </ul>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div className={styles.icon_div}>
           {user && (
             <a href="/profile">
               <i className={`uil uil-user-circle ${styles.account}`}></i>
