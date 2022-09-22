@@ -4,6 +4,18 @@ import TeamMember from '../../Components/team/TeamMember';
 import styles from '../../Styles/pages/team/Team.module.css';
 
 const index = () => {
+  const facultycoordinator = [
+    {
+      image: '/images/team/faculty-cor.png',
+      name: 'MR.A. G. Deshmukh',
+      position: 'Faculty Coordinator',
+      linkedin: '',
+      github: '',
+      twitter: '',
+      class: 'card1',
+    },
+  ];
+
   const lead = [
     {
       image: '/images/team/1.png',
@@ -174,6 +186,15 @@ const index = () => {
       </Header>
 
       <div className={styles.team_container}>
+        <h2>Faculty Coordinator</h2>
+        <div className={styles.team_members}>
+          {facultycoordinator?.map((ld) => (
+            <TeamMember member={ld} key={ld.name} />
+          ))}
+        </div>
+
+        <div className={styles.horizontal_row}></div>
+
         <h2>GDSC Lead 2022</h2>
         <div className={styles.team_members}>
           {lead?.map((ld) => (

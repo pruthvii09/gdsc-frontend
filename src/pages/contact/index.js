@@ -26,7 +26,10 @@ const index = () => {
                 <i className="bx bxs-location-plus"></i>
                 <div className={styles.topic}>Address</div>
                 <div className={styles.text_one}>PES MCOE</div>
-                <div className={styles.text_two}>Shivajinaagar Pune</div>
+                <div className={styles.text_two}>
+                  1186/A, Off J.M. Road, Shivajinagar, Pune, Maharashtra Pin-
+                  411005.
+                </div>
               </div>
               <div className={`${styles.phone} ${styles.details}`}>
                 <i className="bx bxl-instagram-alt"></i>
