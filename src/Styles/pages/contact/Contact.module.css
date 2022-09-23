@@ -116,6 +116,33 @@
   background: #3f83d6;
 }
 
+.error {
+  border: 1px solid var(--red);
+  background: #ffe9e9;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: var(--red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 25px;
+}
+
+.message {
+  border-color: var(--green);
+  background: #b3ffd0;
+  color: var(--green);
+}
+
+.error i {
+  cursor: pointer;
+  font-size: 18px;
+}
+
 @media (max-width: 950px) {
   .container {
     width: 95%;

@@ -7,9 +7,7 @@ import { useUserContext } from '../../hooks/useUserContext';
 import styles from '../../Styles/pages/signup/Signup.module.css';
 
 const Index = () => {
-  const navigate = useNavigate();
-
-  const { user, dispatch } = useUserContext();
+  const { dispatch } = useUserContext();
 
   const [data, setData] = useState({
     name: '',
@@ -30,12 +28,6 @@ const Index = () => {
   const [emptyFields, setEmptyFields] = useState([]);
   const [error, setError] = useState('');
   const [showError, setShowError] = useState(false);
-
-  useEffect(() => {
-    if (user) {
-      navigate('/profile');
-    }
-  });
 
   const handleCategory = (e) => {
     const { value, checked } = e.target;
@@ -324,6 +316,9 @@ const Index = () => {
           </button>
           <p>
             Already have and account? <a href="/login"> Click here!</a>
+          </p>
+          <p>
+            Forgot your password? <a href="/forgot"> Click here!</a>
           </p>
         </div>
       </div>

@@ -33,22 +33,22 @@ const Layout = ({ children }) => {
             </a>
           </li>
           <li>
-            <a href="events" onClick={() => setOpen(!open)}>
+            <a href="/events" onClick={() => setOpen(!open)}>
               Events
             </a>
           </li>
           <li>
-            <a href="team" onClick={() => setOpen(!open)}>
+            <a href="/team" onClick={() => setOpen(!open)}>
               Team
             </a>
           </li>
           {/* <li>
-            <a href="quiz" onClick={() => setOpen(!open)}>
+            <a href="/quiz" onClick={() => setOpen(!open)}>
               Quiz
             </a>
           </li> */}
           <li>
-            <a href="contact" onClick={() => setOpen(!open)}>
+            <a href="/contact" onClick={() => setOpen(!open)}>
               Contact Us
             </a>
           </li>
@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
           {user ? (
             <>
               <li>
-                <a href="profile" onClick={() => setOpen(!open)}>
+                <a href="/profile" onClick={() => setOpen(!open)}>
                   Profile
                 </a>
               </li>
@@ -69,7 +69,7 @@ const Layout = ({ children }) => {
           ) : (
             <li>
               <a
-                href="signup"
+                href="/signup"
                 onClick={() => setOpen(!open)}
                 className={styles.active}
               >
@@ -105,27 +105,27 @@ const Layout = ({ children }) => {
             </li>
             <li>
               <span>
-                <a href="events">Events</a>
+                <a href="/events">Events</a>
               </span>
             </li>
             <li>
               <span>
-                <a href="team">Team</a>
+                <a href="/team">Team</a>
               </span>
             </li>
             {/* <li>
               <span>
-                <a href="quiz">Quiz</a>
+                <a href="/quiz">Quiz</a>
               </span>
             </li> */}
             <li>
               <span>
-                <a href="contact">Contact</a>
+                <a href="/contact">Contact</a>
               </span>
             </li>
             <li>
               <span>
-                <a href="signup">Register</a>
+                <a href="/signup">Register</a>
               </span>
             </li>
           </ul>

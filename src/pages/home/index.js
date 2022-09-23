@@ -35,7 +35,7 @@ const Index = () => {
           </button>
         </div>
         <div className={styles.right_container}>
-          <img src="/images/home/home-hero.svg" alt="Home Hero Image" />
+          <img src="/images/home/home-hero.svg" alt="Home_Hero_Image" />
         </div>
       </div>
 
@@ -92,6 +92,7 @@ const Index = () => {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          title="PES Modern College Of Engineering, Pune"
         ></iframe>
       </div>
     </div>

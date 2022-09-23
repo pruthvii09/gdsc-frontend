@@ -17,10 +17,15 @@ import {
   Quiz,
   Login,
   Profile,
+  Forgot,
+  ForgotPassword,
 } from '../src/pages';
 import Layout from './Components/Layout';
+import { useUserContext } from './hooks/useUserContext';
 
 const App = () => {
+  const { user } = useUserContext();
+
   return (
     <div className="App">
       <Router>
@@ -30,10 +35,24 @@ const App = () => {
             <Route path="/events" element={<Events />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-            {/* <Route path="/quiz" element={<Quiz />} /> */}
+            <Route
+              path="/signup"
+              element={user ? <Navigate to="/profile" /> : <Signup />}
+            />
+            <Route
+              path="/login"
+              element={user ? <Navigate to="/profile" /> : <Login />}
+            />
+            <Route
+              path="/profile"
+              element={user ? <Profile /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/quiz"
+              element={user ? <Quiz /> : <Navigate to="/login" />}
+            />
+            <Route path="/forgot/" element={<Forgot />} />
+            <Route path="/forgot/:id" element={<ForgotPassword />} />
           </Routes>
         </Layout>
       </Router>

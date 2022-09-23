@@ -7,7 +7,8 @@ const index = () => {
   const upcomingevents = [
     {
       id: 1,
-      image: '/images/event/android-compose-camp-event.png',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/events%2Fandroid-compose-camp-event.png?alt=media&token=9e33449a-2253-4731-8cdf-9dfdb323a67e',
       name: 'Android Compose Camp',
       paragraphs: [
         'Compose Camps are community-organized events that teach people how to create Android apps 📱 with Jetpack Compose. Join us now!! This is your time to shine! Get hands- on experience on technologies from Google and excel in your expertise with this event🎉✨',
@@ -29,7 +30,8 @@ const index = () => {
   const pastevents = [
     {
       id: 1,
-      image: '/images/event/orientation.jpeg',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/events%2Forientation.jpeg?alt=media&token=d622832d-8079-4dfa-97c7-ddb03d361618',
       name: 'GDSC Orientation 2022',
       paragraphs: [
         'GDSC PESMCOE successfully conducted our debut event, the orientation for the tenure 2022-23. The goal of GDSC is to bridge the knowledge gap between theory and practice by implementing Google technologies to address issues in our community. The club was successfully launched in classroom 424 on September 17, 2022, from 12:30 pm to 1:30pm',

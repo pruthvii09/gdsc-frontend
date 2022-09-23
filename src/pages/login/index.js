@@ -7,9 +7,7 @@ import { useUserContext } from '../../hooks/useUserContext';
 import styles from '../../Styles/pages/signup/Signup.module.css';
 
 const Index = () => {
-  const navigate = useNavigate();
-
-  const { user, dispatch } = useUserContext();
+  const { dispatch } = useUserContext();
 
   const [data, setData] = useState({
     email: '',
@@ -25,12 +23,6 @@ const Index = () => {
   const [emptyFields, setEmptyFields] = useState([]);
   const [error, setError] = useState('');
   const [showError, setShowError] = useState(false);
-
-  useEffect(() => {
-    if (user) {
-      navigate('/profile');
-    }
-  });
 
   const handleSignIn = async () => {
     setDisableSignup(true);
@@ -157,6 +149,9 @@ const Index = () => {
           </button>
           <p>
             Don't have and account? <a href="/signup"> Click here!</a>
+          </p>
+          <p>
+            Forgot your password? <a href="/forgot"> Click here!</a>
           </p>
         </div>
       </div>

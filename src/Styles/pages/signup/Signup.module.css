@@ -189,6 +189,12 @@
   cursor: pointer;
 }
 
+.message {
+  border-color: var(--green);
+  background: #b3ffd0;
+  color: var(--green);
+}
+
 @media screen and (max-width: 900px) {
   .container {
     flex-direction: column;

@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import styles from '../../Styles/pages/quiz/Quiz.module.css';
 
-const Question = ({ quiz, question, setQuestion, quizes, answers }) => {
+const Question = ({
+  quiz,
+  question,
+  setQuestion,
+  quizes,
+  answers,
+  handleResult,
+  error,
+  setError,
+}) => {
   const [state, setState] = useState(false);
 
   return (
@@ -9,7 +18,13 @@ const Question = ({ quiz, question, setQuestion, quizes, answers }) => {
       <h3>
         Question <span>{quiz?.id}</span>/{quizes?.length}
       </h3>
-      <h4>{quiz?.question}</h4>
+
+      <h4>
+        <span>Q.</span>
+        {quiz?.question}
+      </h4>
+
+      <h5>Choices : </h5>
 
       {quiz?.options?.map((option) => (
         <p
@@ -23,6 +38,8 @@ const Question = ({ quiz, question, setQuestion, quizes, answers }) => {
           {option}
         </p>
       ))}
+
+      <div className={styles.horizontal_row}></div>
 
       <div className={styles.buttons}>
         <button
@@ -43,6 +60,13 @@ const Question = ({ quiz, question, setQuestion, quizes, answers }) => {
         </button>
       </div>
 
+      {error && (
+        <div className={styles.error}>
+          {error}{' '}
+          <i class="uil uil-times-circle" onClick={() => setError('')}></i>
+        </div>
+      )}
+
       {question === quizes?.length - 1 && (
         <div
           style={{
@@ -51,13 +75,7 @@ const Question = ({ quiz, question, setQuestion, quizes, answers }) => {
             justifyContent: 'center',
           }}
         >
-          <button
-            className={styles.submit}
-            onClick={() => {
-              // answers?.map((answer) => console.log(answer));
-              console.log(answers);
-            }}
-          >
+          <button className={styles.submit} onClick={handleResult}>
             Submit
           </button>
         </div>
