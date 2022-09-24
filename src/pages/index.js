@@ -8,6 +8,7 @@ import Login from './login';
 import Profile from './profile';
 import Forgot from './forgot';
 import ForgotPassword from './forgot/[id]';
+import ErrorPage from './404';
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   Profile,
   Forgot,
   ForgotPassword,
+  ErrorPage,
 };
