@@ -1,172 +1,107 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from '../../Components/quiz/Question';
-import Header from '../../Components/Header';
 import styles from '../../Styles/pages/quiz/Quiz.module.css';
+import { useUserContext } from '../../hooks/useUserContext';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import Dialog from '../../Components/Dialog';
 
 const Index = () => {
-  const quizes = [
-    {
-      id: 1,
-      question:
-        'True or false? To preview composable functions, a developer must deploy the app to an Android device or emulator.',
-      options: ['True', 'False'],
-      answer: 'True',
-    },
-    {
-      id: 2,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 3,
-      question:
-        'Which of the following are common strategies for integrating Jetpack Compose with an existing Android app?',
-      options: [
-        'Integrate Compose in new screens',
-        'Migrate in bulk with an automated tool',
-        'Use Compose as a replacement for the View system for part of an existing screen',
-        'Migrate whole fragments or screens to Compose one at a time',
-      ],
-      answer:
-        'Use Compose as a replacement for the View system for part of an existing screen',
-    },
-    {
-      id: 4,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 5,
-      question:
-        '___ tell a UI element how to lay out, display, or behave within its parent layout.',
-      options: ['Modifier parameters', 'Composers', 'Kotlin functions', 'CSS'],
-      answer: 'CSS',
-    },
-    {
-      id: 6,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 7,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 8,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 9,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 10,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 11,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 12,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 13,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 14,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 15,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 16,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 17,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 18,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 19,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-    {
-      id: 20,
-      question:
-        '___ layout allows you to implement a UI with the basic Material Design layout structure.',
-      options: ['TopAppBar', 'ConstraintLayout', 'Scaffold', 'Column'],
-      answer: 'TopAppBar',
-    },
-  ];
+  const navigate = useNavigate();
+
+  const { userData } = useUserContext();
+
+  const { category } = useParams();
+
+  const [quizes, setQuizes] = useState();
 
   const [question, setQuestion] = useState(0);
 
-  const INITIAL_LIST = Array.from({ length: quizes?.length });
-
-  const [answers, setAnswers] = useState(INITIAL_LIST);
+  const [answers, setAnswers] = useState();
 
   const [error, setError] = useState('');
 
-  const handleResult = () => {
+  const [liveError, setLiveError] = useState('');
+  const [p, setP] = useState('');
+  const [startExam, setStartExam] = useState(false);
+
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setError('');
+
+    window.scrollTo(0, 0);
+
+    const getQuestions = async () => {
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URI}/api/quizzes/${category}`,
+        {
+          method: 'GET',
+        }
+      );
+
+      const json = await response.json();
+
+      if (response.ok) {
+        setQuizes(json.quizzes);
+        setStartExam(true);
+        setAnswers(Array.from({ length: json?.quizzes?.length }));
+      }
+    };
+
+    const checkExamIsLive = async () => {
+      setLiveError('');
+      setP('');
+
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URI}/api/score/check-live/${category}`,
+        {
+          method: 'GET',
+        }
+      );
+
+      const json = await response.json();
+
+      if (response.ok) {
+        getQuestions();
+      }
+      if (!response.ok) {
+        setLiveError(json.error);
+        setP(json.p);
+      }
+    };
+
+    const checkElligibility = async () => {
+      setLiveError('');
+
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URI}/api/score/check-done/${userData?._id}?category=${category}`,
+        {
+          method: 'GET',
+        }
+      );
+
+      const json = await response.json();
+
+      if (response.ok) {
+        checkExamIsLive();
+      }
+      if (!response.ok) {
+        setLiveError(json.error);
+      }
+    };
+
+    if (userData) {
+      checkElligibility();
+    }
+  }, [userData, pathname]);
+
+  // Check result and save to backend
+  const handleResult = async () => {
     setError('');
 
     let score = 0;
-
-    console.log(answers);
 
     quizes.map((quiz) => {
       if (!answers[quiz.id - 1]) {
@@ -178,36 +113,98 @@ const Index = () => {
       }
     });
 
-    console.log(score);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/api/score/${category}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: userData._id,
+          name: userData.name,
+          score: score,
+        }),
+      }
+    );
+
+    const json = await response.json();
+
+    if (response.ok) {
+      setOpenDialog(true);
+
+      setTimeout(() => {
+        setOpenDialog(false);
+        navigate('/profile');
+      }, 4000);
+    }
+    if (!response.ok) {
+      console.log(json.error);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.quizes_container}>
-        <h2>Quiz Category</h2>
-
-        <div className={styles.all_questions}>
-          {answers?.map((answer, index) => (
-            <div
-              className={`${styles.question_box} ${answer ? styles.done : ''}`}
-              onClick={() => setQuestion(index)}
-            >
-              {index + 1}
-            </div>
-          ))}
+      {liveError && (
+        <div
+          className={`${styles.quizes_container} ${styles.error_box}`}
+          style={{ margin: '150px 10px', marginBottom: '100px' }}
+        >
+          <div>
+            <h3>{liveError}</h3>
+            {p && <p>{p}</p>}
+            <button>Contact Us</button>
+          </div>
         </div>
+      )}
 
-        <Question
-          quiz={quizes[question]}
-          question={question}
-          setQuestion={setQuestion}
-          quizes={quizes}
-          answers={answers}
-          handleResult={handleResult}
-          error={error}
-          setError={setError}
-        />
-      </div>
+      {startExam && (
+        <div className={styles.quizes_container}>
+          <h2>{category}</h2>
+
+          <div className={styles.all_questions}>
+            {answers?.map((answer, index) => (
+              <div
+                className={`${styles.question_box} ${
+                  answer ? styles.done : ''
+                }`}
+                onClick={() => setQuestion(index)}
+                key={`${index}_${answers}`}
+              >
+                {index + 1}
+              </div>
+            ))}
+          </div>
+
+          <Question
+            quiz={quizes[question]}
+            question={question}
+            setQuestion={setQuestion}
+            quizes={quizes}
+            answers={answers}
+            handleResult={handleResult}
+            error={error}
+            setError={setError}
+          />
+        </div>
+      )}
+
+      <Dialog
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+        title={`Exam Submitted`}
+        children={
+          <div>
+            <p>You exam for {category} is submitted successfully!</p>
+            <p>Your result will be declare soon!</p>
+            <button className={styles.button}>
+              <Link to="/profile" style={{ color: 'white' }}>
+                Go To Profile
+              </Link>
+            </button>
+          </div>
+        }
+      />
     </div>
   );
 };

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Dialog from '../../Components/Dialog';
 import Spinner from '../../Components/Spinner';
 import styles from '../../Styles/pages/signup/Signup.module.css';
@@ -14,6 +15,11 @@ const Index = () => {
   const [disableSignup, setDisableSignup] = useState(false);
 
   const [email, setEmail] = useState('');
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const handleSendEmail = async () => {
     setDisableSignup(true);

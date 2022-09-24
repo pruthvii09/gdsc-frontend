@@ -1,9 +1,14 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from '../../Styles/pages/home/Home.module.css';
 
 const Index = () => {
   const navigate = useNavigate();
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className={styles.home} id="#home">
@@ -19,6 +24,8 @@ const Index = () => {
           </h1>
           <h1 style={{ marginLeft: '-10px' }}>
             <span className={styles.red}>Camp</span>
+            <span className={styles.blue}> Fe</span>
+            <span className={styles.green}>st</span>
           </h1>
           <p>Hello there, coders! 🔊</p>
           <p>
@@ -30,9 +37,7 @@ const Index = () => {
             are you still waiting for?✨✨
           </p>
 
-          <button>
-            <a href="/signup">Register Now</a>
-          </button>
+          <button onClick={() => navigate('/signup')}>Register Now</button>
         </div>
         <div className={styles.right_container}>
           <img src="/images/home/home-hero.svg" alt="Home_Hero_Image" />
@@ -56,9 +61,7 @@ const Index = () => {
         </p>
         <img src="/images/home/android-jetpack.png" alt="" />
         <button onClick={() => navigate('/signup')}>
-          <a href="/signup">
-            <i class="uil uil-bell"></i> Register For Event
-          </a>
+          <i className="uil uil-bell"></i> Register For Event
         </button>
       </div>
 
@@ -78,9 +81,7 @@ const Index = () => {
             enrich our code monkeys' coding experience! So, what are you still
             waiting for?✨✨
           </p>
-          <button>
-            <a href="/signup">Join Now</a>
-          </button>
+          <button onClick={() => navigate('/contact')}>Join Now</button>
         </div>
       </div>
 
@@ -89,9 +90,7 @@ const Index = () => {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.0738568129304!2d73.84422261481328!3d18.5255642874061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07e4111123b%3A0x3f92335c2e5c8400!2sP.E.S.%20Modern%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1663607696037!5m2!1sen!2sin"
           width="100%"
           height="450"
-          allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
           title="PES Modern College Of Engineering, Pune"
         ></iframe>
       </div>

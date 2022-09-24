@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from '../../Styles/components/TeamMember.module.css';
 import '../../Styles/components/TeamMember.module.css';
 
@@ -55,22 +55,22 @@ const TeamMember = ({ member }) => {
           >
             {member?.linkedin && (
               <li>
-                <a href={member?.linkedin}>
-                  <i class="uil uil-linkedin-alt"></i>
+                <a href={member?.linkedin} target="_blank">
+                  <i className="uil uil-linkedin-alt"></i>
                 </a>
               </li>
             )}
             {member?.github && (
               <li>
-                <a href={member?.github}>
-                  <i class="uil uil-github-alt"></i>
+                <a href={member?.github} target="_blank">
+                  <i className="uil uil-github-alt"></i>
                 </a>
               </li>
             )}
             {member?.twitter && (
               <li>
-                <a href={member?.twitter}>
-                  <i class="uil uil-twitter-alt"></i>
+                <a href={member?.twitter} target="_blank">
+                  <i className="uil uil-twitter-alt"></i>
                 </a>
               </li>
             )}

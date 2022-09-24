@@ -11,7 +11,7 @@ const Dialog = ({ openDialog, setOpenDialog, title, children }) => {
       <div className={styles.dialogContent}>
         <div className={styles.dialogHeader}>
           <i
-            class="uil uil-times-circle"
+            className="uil uil-times-circle"
             onClick={() => setOpenDialog(!openDialog)}
           ></i>
           <h4>{title}</h4>

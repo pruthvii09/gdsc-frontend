@@ -63,7 +63,7 @@ const Question = ({
       {error && (
         <div className={styles.error}>
           {error}{' '}
-          <i class="uil uil-times-circle" onClick={() => setError('')}></i>
+          <i className="uil uil-times-circle" onClick={() => setError('')}></i>
         </div>
       )}
 

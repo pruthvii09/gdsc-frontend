@@ -173,6 +173,58 @@
   color: #f9f9f9;
 }
 
+.error_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.error_box h3 {
+  text-align: center;
+  font-weight: 400;
+  color: #333;
+  margin: 30px 10px;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.error_box p {
+  text-align: center;
+}
+
+.error_box button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  background: var(--blue);
+  border-radius: 5px;
+  border: none;
+  color: #fdfdfd;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.error_box button:hover {
+  background: #046ceb;
+}
+
+.button {
+  color: #fdfdfd;
+  background: var(--blue);
+  padding: 8px 15px;
+  border: none;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 630px) {
   .quiz {
     width: 100%;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Dialog from '../../Components/Dialog';
 import Header from '../../Components/Header';
 import Spinner from '../../Components/Spinner';
@@ -28,6 +28,11 @@ const Index = () => {
   const [emptyFields, setEmptyFields] = useState([]);
   const [error, setError] = useState('');
   const [showError, setShowError] = useState(false);
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const handleCategory = (e) => {
     const { value, checked } = e.target;
@@ -207,12 +212,12 @@ const Index = () => {
               />
               {showPassword ? (
                 <i
-                  class="uil uil-eye-slash"
+                  className="uil uil-eye-slash"
                   onClick={() => setShowPassword(!showPassword)}
                 ></i>
               ) : (
                 <i
-                  class="uil uil-eye"
+                  className="uil uil-eye"
                   onClick={() => setShowPassword(!showPassword)}
                 ></i>
               )}
@@ -295,7 +300,7 @@ const Index = () => {
             <div className={styles.error}>
               {error}
               <i
-                class="uil uil-times-circle"
+                className="uil uil-times-circle"
                 onClick={() => setShowError(!showError)}
               ></i>
             </div>
@@ -315,10 +320,10 @@ const Index = () => {
             )}
           </button>
           <p>
-            Already have and account? <a href="/login"> Click here!</a>
+            Already have and account? <Link to="/login"> Click here!</Link>
           </p>
-          <p>
-            Forgot your password? <a href="/forgot"> Click here!</a>
+          <p style={{ marginTop: '5px' }}>
+            Forgot your password? <Link to="/forgot"> Click here!</Link>
           </p>
         </div>
       </div>
@@ -331,9 +336,9 @@ const Index = () => {
           <div>
             <p>Thank you for Android Compose Camp 2022 registration!</p>
             <button className={styles.button}>
-              <a href="/contact" style={{ color: 'white' }}>
+              <Link to="/contact" style={{ color: 'white' }}>
                 Contact Us
-              </a>
+              </Link>
             </button>
           </div>
         }

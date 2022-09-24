@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../../Components/Header';
 import TeamMember from '../../Components/team/TeamMember';
 import styles from '../../Styles/pages/team/Team.module.css';
 
-const index = () => {
+const Index = () => {
   const facultycoordinator = [
     {
       image:
@@ -83,23 +84,13 @@ const index = () => {
     },
     {
       image:
-        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F7.png?alt=media&token=db4ae0d9-962d-44d8-b08e-d4654e5f1910',
-      name: 'Shruti Satpute',
-      position: 'Design Lead',
-      linkedin: '',
-      github: '',
-      twitter: '',
-      class: 'card2',
-    },
-    {
-      image:
         'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F8.png?alt=media&token=87b48584-9239-47ea-9246-4030fd5ac139',
       name: 'Pooja Sanap',
       position: 'Blockchain Lead',
       linkedin: 'https://www.linkedin.com/in/poojasanap53',
       github: 'https://github.com/pooja-sanap-53',
       twitter: '',
-      class: 'card3',
+      class: 'card2',
     },
     {
       image:
@@ -109,7 +100,7 @@ const index = () => {
       linkedin: 'https://www.linkedin.com/in/ishani-deshmukh-21b3311a6',
       github: 'https://github.com/deathmukh',
       twitter: 'https://twitter.com/ishewwww?t=GOjmJO8MAr7YvM_MbwVw0g&s=09',
-      class: 'card4',
+      class: 'card3',
     },
     {
       image:
@@ -119,18 +110,28 @@ const index = () => {
       linkedin: 'https://www.linkedin.com/in/anvesh-samrit-2b4b3a216',
       github: 'https://github.com/WHOanvesh',
       twitter: 'https://twitter.com/MiniSpeaker3?t=4EJZeukXa6fcx5VW5ET2QQ&s=09',
-      class: 'card1',
+      class: 'card4',
     },
-    {
-      image:
-        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F11.png?alt=media&token=bee72818-82f1-4c23-ae8c-65ae2a359725',
-      name: 'Harshwardhan Wandeshkhar',
-      position: 'AI/ML Lead',
-      linkedin: '',
-      github: '',
-      twitter: '',
-      class: 'card2',
-    },
+    // {
+    //   image:
+    //     'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F7.png?alt=media&token=db4ae0d9-962d-44d8-b08e-d4654e5f1910',
+    //   name: 'Shruti Satpute',
+    //   position: 'Design Lead',
+    //   linkedin: '',
+    //   github: '',
+    //   twitter: '',
+    //   class: 'card1',
+    // },
+    // {
+    //   image:
+    //     'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F11.png?alt=media&token=bee72818-82f1-4c23-ae8c-65ae2a359725',
+    //   name: 'Harshwardhan Wandeshkhar',
+    //   position: 'AI/ML Lead',
+    //   linkedin: '',
+    //   github: '',
+    //   twitter: '',
+    //   class: 'card2',
+    // },
   ];
 
   const webdevteam = [
@@ -175,18 +176,23 @@ const index = () => {
       twitter: '',
       class: 'card4',
     },
-    {
-      image:
-        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F16.png?alt=media&token=494074d5-cc7d-4f06-8281-e652d6be0f3e',
-      name: 'Shubham Pawar',
-      position: 'Web Developer',
-      linkedin: 'https://www.linkedin.com/in/shubhampawar99',
-      github: 'https://github.com/Shubham5250',
-      twitter:
-        'https://twitter.com/ShubhamPawar93?t=FaW5MCQTVpki3LXGv7kAHQ&s=09',
-      class: 'card1',
-    },
+    // {
+    //   image:
+    //     'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F16.png?alt=media&token=494074d5-cc7d-4f06-8281-e652d6be0f3e',
+    //   name: 'Shubham Pawar',
+    //   position: 'Web Developer',
+    //   linkedin: 'https://www.linkedin.com/in/shubhampawar99',
+    //   github: 'https://github.com/Shubham5250',
+    //   twitter:
+    //     'https://twitter.com/ShubhamPawar93?t=FaW5MCQTVpki3LXGv7kAHQ&s=09',
+    //   class: 'card1',
+    // },
   ];
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className={styles.container}>
@@ -241,4 +247,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

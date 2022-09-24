@@ -48,8 +48,14 @@ const App = () => {
               element={user ? <Profile /> : <Navigate to="/login" />}
             />
             <Route
-              path="/quiz"
-              element={user ? <Quiz /> : <Navigate to="/login" />}
+              path="/quiz/:category"
+              element={
+                localStorage.getItem('user') ? (
+                  <Quiz />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
             />
             <Route path="/forgot/" element={<Forgot />} />
             <Route path="/forgot/:id" element={<ForgotPassword />} />

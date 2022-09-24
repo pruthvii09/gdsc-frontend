@@ -17,8 +17,8 @@ const SingleEvent = ({ event }) => {
       <div className={styles.right_container}>
         <h3>{event?.name}</h3>
 
-        {event?.paragraphs?.map((para) => (
-          <p>{para}</p>
+        {event?.paragraphs?.map((para, index) => (
+          <p key={index}>{para}</p>
         ))}
 
         <div className={styles.divider}></div>
@@ -26,22 +26,22 @@ const SingleEvent = ({ event }) => {
         <div className={styles.schedule}>
           <h4>Schedule</h4>
           <span>
-            <i class="uil uil-notes"></i>
+            <i className="uil uil-notes"></i>
             Date: {event?.schedule?.date}
           </span>
           <span>
-            <i class="uil uil-clock"></i>Time: {event?.schedule?.time}
+            <i className="uil uil-clock"></i>Time: {event?.schedule?.time}
           </span>
           <span>
-            <i class="uil uil-map-pin"></i>Venue: {event?.schedule?.venu}
+            <i className="uil uil-map-pin"></i>Venue: {event?.schedule?.venu}
           </span>
         </div>
         {event?.register &&
           (user ? (
             <h6>You have already registered for this event!</h6>
           ) : (
-            <button>
-              <a href="/signup">Register For Event</a>
+            <button onClick={() => navigate('/signup')}>
+              Register For Event
             </button>
           ))}
       </div>

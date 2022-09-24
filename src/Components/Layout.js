@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useUserContext } from '../hooks/useUserContext';
 import styles from '../Styles/components/Layout.module.css';
 
 const Layout = ({ children }) => {
-  const navigate = useNavigate();
-
   const { user, dispatch } = useUserContext();
 
   const [open, setOpen] = useState(false);
@@ -19,7 +17,7 @@ const Layout = ({ children }) => {
     <div>
       <nav className={styles.navbar}>
         <Link to="/">
-          <img src="/images/logo.svg" alt="" />
+          <img src="/images/logo.svg" alt="GDSC-PESMCOE-LOGO" />
         </Link>
 
         <ul className={open ? styles.active_navbar : ''}>
@@ -28,37 +26,37 @@ const Layout = ({ children }) => {
             onClick={() => setOpen(!open)}
           ></i>
           <li>
-            <a href="/" onClick={() => setOpen(!open)}>
+            <Link to="/" onClick={() => setOpen(!open)}>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/events" onClick={() => setOpen(!open)}>
+            <Link to="/events" onClick={() => setOpen(!open)}>
               Events
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/team" onClick={() => setOpen(!open)}>
+            <Link to="/team" onClick={() => setOpen(!open)}>
               Team
-            </a>
+            </Link>
           </li>
           {/* <li>
-            <a href="/quiz" onClick={() => setOpen(!open)}>
+            <Link to="/quiz" onClick={() => setOpen(!open)}>
               Quiz
-            </a>
+            </Link>
           </li> */}
           <li>
-            <a href="/contact" onClick={() => setOpen(!open)}>
+            <Link to="/contact" onClick={() => setOpen(!open)}>
               Contact Us
-            </a>
+            </Link>
           </li>
 
           {user ? (
             <>
               <li>
-                <a href="/profile" onClick={() => setOpen(!open)}>
+                <Link to="/profile" onClick={() => setOpen(!open)}>
                   Profile
-                </a>
+                </Link>
               </li>
               <li>
                 <Link onClick={handleLogout} className={styles.active}>
@@ -68,21 +66,21 @@ const Layout = ({ children }) => {
             </>
           ) : (
             <li>
-              <a
-                href="/signup"
+              <Link
+                to="/signup"
                 onClick={() => setOpen(!open)}
                 className={styles.active}
               >
                 Register
-              </a>
+              </Link>
             </li>
           )}
         </ul>
         <div className={styles.icon_div}>
           {user && (
-            <a href="/profile">
+            <Link to="/profile">
               <i className={`uil uil-user-circle ${styles.account}`}></i>
-            </a>
+            </Link>
           )}
           <i
             className={`uil uil-bars ${styles.hamburger}`}
@@ -94,63 +92,66 @@ const Layout = ({ children }) => {
       {children}
 
       <footer className={styles.footer}>
-        <img src="/images/logo.svg" alt="" />
+        <img src="/images/logo.svg" alt="GDSC-PESMCOE-LOGO" />
         <div>
           <h3>Quick Links</h3>
           <ul>
             <li>
               <span>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </span>
             </li>
             <li>
               <span>
-                <a href="/events">Events</a>
+                <Link to="/events">Events</Link>
               </span>
             </li>
             <li>
               <span>
-                <a href="/team">Team</a>
+                <Link to="/team">Team</Link>
               </span>
             </li>
             {/* <li>
               <span>
-                <a href="/quiz">Quiz</a>
+                <Link to="/quiz">Quiz</Li>
               </span>
             </li> */}
             <li>
               <span>
-                <a href="/contact">Contact</a>
+                <Link to="/contact">Contact</Link>
               </span>
             </li>
             <li>
               <span>
-                <a href="/signup">Register</a>
+                <Link to="/signup">Register</Link>
               </span>
             </li>
           </ul>
           <h3>Socials</h3>
           <div className={styles.socials}>
             <div className={styles.social}>
-              <a href="https://www.instagram.com/gdsc_pesmcoe/" target="_blank">
+              <Link
+                to="https://www.instagram.com/gdsc_pesmcoe/"
+                target="_blank"
+              >
                 <i className="uil uil-instagram"></i>
-              </a>
+              </Link>
             </div>
             <div className={styles.social}>
-              <a
-                href="https://www.linkedin.com/company/gdsc-pesmcoe/"
+              <Link
+                to="https://www.linkedin.com/company/gdsc-pesmcoe/"
                 target="_blank"
               >
                 <i className="uil uil-linkedin-alt"></i>
-              </a>
+              </Link>
             </div>
             <div className={styles.social}>
-              <a
-                href="https://twitter.com/gdsc_pesmcoe?s=20&t=AXGA6MhC0e3y8NOBkUOjHA"
+              <Link
+                to="https://twitter.com/gdsc_pesmcoe?s=20&t=AXGA6MhC0e3y8NOBkUOjHA"
                 target="_blank"
               >
                 <i className="uil uil-twitter-alt"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

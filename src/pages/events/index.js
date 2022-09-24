@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../../Components/Header';
 import SingleEvent from '../../Components/event/SingleEvent';
 import styles from '../../Styles/pages/event/Event.module.css';
+import { useLocation } from 'react-router-dom';
 
-const index = () => {
+const Index = () => {
   const upcomingevents = [
     {
       id: 1,
@@ -45,6 +46,11 @@ const index = () => {
     },
   ];
 
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className={styles.container}>
       <Header>
@@ -78,4 +84,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

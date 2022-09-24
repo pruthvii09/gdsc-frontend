@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../../Components/Header';
 import styles from '../../Styles/pages/contact/Contact.module.css';
 
@@ -13,6 +14,11 @@ const Index = () => {
   const [showError, setShowError] = useState(false);
 
   const [message, setMessage] = useState('');
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const handleContactUs = async () => {
     setShowError(false);
@@ -142,7 +148,7 @@ const Index = () => {
                   <div className={styles.error}>
                     {error}{' '}
                     <i
-                      class="uil uil-times-circle"
+                      className="uil uil-times-circle"
                       onClick={() => setShowError(!showError)}
                     ></i>
                   </div>
@@ -151,7 +157,7 @@ const Index = () => {
                   <div className={`${styles.error} ${styles.message}`}>
                     {message}{' '}
                     <i
-                      class="uil uil-times-circle"
+                      className="uil uil-times-circle"
                       onClick={() => setMessage('')}
                     ></i>
                   </div>
