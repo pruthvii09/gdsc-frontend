@@ -61,7 +61,7 @@ const App = () => {
             />
             <Route path="/forgot/" element={<Forgot />} />
             <Route path="/forgot/:id" element={<ForgotPassword />} />
-            {/* <Route path="/admin/score" element={<ScorePage />} /> */}
+            <Route path="/admin/score" element={<ScorePage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Layout>

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../hooks/useUserContext';
 import styles from '../../Styles/pages/profile/Profile.module.css';
 
 const Index = () => {
   const { user, userData, dispatch } = useUserContext();
+
+  const navigate = useNavigate();
 
   const { pathname } = useLocation();
   useEffect(() => {
@@ -65,7 +67,12 @@ const Index = () => {
             <h5>Quizzes for the selected categories will be live soon.</h5>
             <div className={styles.buttons}>
               {userData?.quizCategory?.map((category) => (
-                <button key={category}>{category}</button>
+                <button
+                  key={category}
+                  onClick={() => navigate(`/quiz/${category}`)}
+                >
+                  {category}
+                </button>
               ))}
             </div>
           </div>
