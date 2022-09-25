@@ -8,6 +8,7 @@ import Login from './login';
 import Profile from './profile';
 import Forgot from './forgot';
 import ForgotPassword from './forgot/[id]';
+import ScorePage from './admin/score';
 import ErrorPage from './404';
 
 export {
@@ -21,5 +22,6 @@ export {
   Profile,
   Forgot,
   ForgotPassword,
+  ScorePage,
   ErrorPage,
 };

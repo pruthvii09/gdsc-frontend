@@ -20,6 +20,7 @@ import {
   Forgot,
   ForgotPassword,
   ErrorPage,
+  ScorePage,
 } from '../src/pages';
 import Layout from './Components/Layout';
 import { useUserContext } from './hooks/useUserContext';
@@ -48,7 +49,7 @@ const App = () => {
               path="/profile"
               element={user ? <Profile /> : <Navigate to="/login" />}
             />
-            {/* <Route
+            <Route
               path="/quiz/:category"
               element={
                 localStorage.getItem('user') ? (
@@ -57,9 +58,10 @@ const App = () => {
                   <Navigate to="/login" />
                 )
               }
-            /> */}
+            />
             <Route path="/forgot/" element={<Forgot />} />
             <Route path="/forgot/:id" element={<ForgotPassword />} />
+            {/* <Route path="/admin/score" element={<ScorePage />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Layout>

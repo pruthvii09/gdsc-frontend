@@ -112,26 +112,26 @@ const Index = () => {
       twitter: 'https://twitter.com/MiniSpeaker3?t=4EJZeukXa6fcx5VW5ET2QQ&s=09',
       class: 'card4',
     },
-    // {
-    //   image:
-    //     'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F7.png?alt=media&token=db4ae0d9-962d-44d8-b08e-d4654e5f1910',
-    //   name: 'Shruti Satpute',
-    //   position: 'Design Lead',
-    //   linkedin: '',
-    //   github: '',
-    //   twitter: '',
-    //   class: 'card1',
-    // },
-    // {
-    //   image:
-    //     'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F11.png?alt=media&token=bee72818-82f1-4c23-ae8c-65ae2a359725',
-    //   name: 'Harshwardhan Wandeshkhar',
-    //   position: 'AI/ML Lead',
-    //   linkedin: '',
-    //   github: '',
-    //   twitter: '',
-    //   class: 'card2',
-    // },
+    {
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F7.png?alt=media&token=db4ae0d9-962d-44d8-b08e-d4654e5f1910',
+      name: 'Shruti Satpute',
+      position: 'Design Lead',
+      linkedin: 'https://www.linkedin.com/in/shruti-satpute-431a4224b',
+      github: '',
+      twitter: '',
+      class: 'card1',
+    },
+    {
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F11.png?alt=media&token=bee72818-82f1-4c23-ae8c-65ae2a359725',
+      name: 'Harshwardhan Wandeshkhar',
+      position: 'AI/ML Lead',
+      linkedin: 'https://www.linkedin.com/in/harshwardhan-wandeshkar-3968b1239',
+      github: '',
+      twitter: 'https://twitter.com/HWandeshkar?t=wB1ycOps_81HahVa98uyww&s=09',
+      class: 'card2',
+    },
   ];
 
   const webdevteam = [
@@ -176,17 +176,17 @@ const Index = () => {
       twitter: '',
       class: 'card4',
     },
-    // {
-    //   image:
-    //     'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F16.png?alt=media&token=494074d5-cc7d-4f06-8281-e652d6be0f3e',
-    //   name: 'Shubham Pawar',
-    //   position: 'Web Developer',
-    //   linkedin: 'https://www.linkedin.com/in/shubhampawar99',
-    //   github: 'https://github.com/Shubham5250',
-    //   twitter:
-    //     'https://twitter.com/ShubhamPawar93?t=FaW5MCQTVpki3LXGv7kAHQ&s=09',
-    //   class: 'card1',
-    // },
+    {
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F16.png?alt=media&token=494074d5-cc7d-4f06-8281-e652d6be0f3e',
+      name: 'Shubham Pawar',
+      position: 'Web Developer',
+      linkedin: 'https://www.linkedin.com/in/shubhampawar99',
+      github: 'https://github.com/Shubham5250',
+      twitter:
+        'https://twitter.com/ShubhamPawar93?t=FaW5MCQTVpki3LXGv7kAHQ&s=09',
+      class: 'card1',
+    },
   ];
 
   const { pathname } = useLocation();

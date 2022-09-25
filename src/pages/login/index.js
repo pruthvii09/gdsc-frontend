@@ -63,7 +63,7 @@ const Index = () => {
         });
         setTimeout(() => {
           dispatch({ type: 'LOGIN', payload: json });
-        }, 4000);
+        }, 2000);
         setOpenDialog(true);
       }
       if (!response.ok) {
@@ -169,8 +169,8 @@ const Index = () => {
           <div>
             <p>You are logged in to Android Compose Camp 2022 event!</p>
             <button className={styles.button}>
-              <Link to="/contact" style={{ color: 'white' }}>
-                Contact Us
+              <Link to="/profile" style={{ color: 'white' }}>
+                Profile
               </Link>
             </button>
           </div>

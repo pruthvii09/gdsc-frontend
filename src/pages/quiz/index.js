@@ -227,6 +227,7 @@ const Index = () => {
       }
     });
 
+    const date = Date.now().toString();
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URI}/api/score/${category}`,
       {
@@ -238,6 +239,8 @@ const Index = () => {
           id: userData._id,
           name: userData.name,
           score: score,
+          submittedAt: date,
+          year: userData.year,
         }),
       }
     );
