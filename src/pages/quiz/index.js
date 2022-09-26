@@ -277,7 +277,7 @@ const Index = () => {
           <div>
             <h3>{liveError}</h3>
             {p && <p>{p}</p>}
-            <button>Contact Us</button>
+            <button onClick={() => navigate('/contact')}>Contact Us</button>
           </div>
         </div>
       )}
