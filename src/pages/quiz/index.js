@@ -92,7 +92,7 @@ const FormComponent = ({ setStartExam, form, setForm }) => {
               <button
                 onClick={handleCheckPassword}
                 disabled={disableSignup}
-                className={disableSignup ? styles.disabled : ''}
+                className={disableSignup ? styles.disabled_button : ''}
               >
                 {disableSignup ? (
                   <>
@@ -135,6 +135,8 @@ const Index = () => {
   const [openDialog, setOpenDialog] = useState(false);
 
   const [loading, setLoading] = useState(false);
+
+  const [submitDisable, setSubmitDisable] = useState(false);
 
   const { pathname } = useLocation();
 
@@ -213,6 +215,7 @@ const Index = () => {
 
   // Check result and save to backend
   const handleResult = async () => {
+    setSubmitDisable(true);
     setError('');
 
     let score = 0;
@@ -220,7 +223,7 @@ const Index = () => {
     quizes.map((quiz) => {
       if (!answers[quiz.id - 1]) {
         setError('Please attempt all the questions!');
-        return;
+        return setSubmitDisable(false);
       }
       if (quiz.answer === answers[quiz.id - 1]) {
         score++;
@@ -228,7 +231,7 @@ const Index = () => {
     });
 
     if (answers.includes(undefined)) {
-      return;
+      return setSubmitDisable(false);
     }
 
     const date = Date.now().toString();
@@ -257,7 +260,7 @@ const Index = () => {
       setTimeout(() => {
         setOpenDialog(false);
         navigate('/profile');
-      }, 4000);
+      }, 3000);
     }
     if (!response.ok) {
       console.log(json.error);
@@ -326,6 +329,8 @@ const Index = () => {
                   handleResult={handleResult}
                   error={error}
                   setError={setError}
+                  submitDisable={submitDisable}
+                  setSubmitDisable={setSubmitDisable}
                 />
               </div>
             )}

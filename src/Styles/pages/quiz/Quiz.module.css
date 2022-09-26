@@ -225,6 +225,10 @@
   margin-top: 10px;
 }
 
+.disabled_button {
+  background: #5ca5ff;
+}
+
 @media screen and (max-width: 630px) {
   .quiz {
     width: 100%;

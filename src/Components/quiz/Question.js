@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../../Styles/pages/quiz/Quiz.module.css';
+import Spinner from '../Spinner';
 
 const Question = ({
   quiz,
@@ -10,6 +11,8 @@ const Question = ({
   handleResult,
   error,
   setError,
+  submitDisable,
+  setSubmitDisable,
 }) => {
   const [state, setState] = useState(false);
 
@@ -75,8 +78,22 @@ const Question = ({
             justifyContent: 'center',
           }}
         >
-          <button className={styles.submit} onClick={handleResult}>
+          <button
+            className={`${styles.submit} ${
+              submitDisable && styles.disabled_button
+            }`}
+            onClick={() => {
+              handleResult();
+            }}
+            disabled={submitDisable}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
             Submit
+            {submitDisable && <Spinner />}
           </button>
         </div>
       )}
