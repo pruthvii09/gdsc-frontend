@@ -12,7 +12,6 @@ const Question = ({
   error,
   setError,
   submitDisable,
-  setSubmitDisable,
 }) => {
   const [state, setState] = useState(false);
 
