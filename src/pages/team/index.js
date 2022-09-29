@@ -132,6 +132,16 @@ const Index = () => {
       twitter: 'https://twitter.com/HWandeshkar?t=wB1ycOps_81HahVa98uyww&s=09',
       class: 'card2',
     },
+    {
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/gdsc-pesmcoe-2022.appspot.com/o/team%2F17.png?alt=media&token=48d68dd1-d439-4d2a-891e-3de5a9d9ce8b',
+      name: 'Siddharth Kocheta',
+      position: 'AI/ML Lead',
+      linkedin: 'https://www.linkedin.com/in/siddharth-kocheta-84b576243',
+      github: 'https://github.com/sidh18',
+      twitter: 'https://twitter.com/sidhkocheta?t=Pzz0yn6Z5KHWKn2gH10qKw&s=09',
+      class: 'card3',
+    },
   ];
 
   const webdevteam = [
