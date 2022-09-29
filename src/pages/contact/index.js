@@ -34,7 +34,7 @@ const Index = () => {
       setShowError(true);
     } else {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URI}/api/contact`,
+        `${process.env.REACT_APP_BACKEND_URI}api/contact`,
         {
           method: 'POST',
           headers: {
